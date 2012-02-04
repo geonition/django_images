@@ -5,3 +5,12 @@ required.
 The GET parameters define the color in RGB and also the size of the image to be
 returned. This application is only ment to porvide map markers but the idea
 can of course be used to procide other types of images too.
+
+To use this app install it with the following command:
+python setup.py install
+
+After that you need to add gntimages to INSTALLED_APPS and import 
+the gntimages.urls to your urls settings.
+
+The app works by giving color and scale as get parameters 'color' and 'scale'.
+The color should be given in hexadecimal representation and scale as a float.

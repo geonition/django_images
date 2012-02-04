@@ -10,7 +10,7 @@ setup(
     include_package_data=True,
     package_data = {
         "gntimages": [
-            "static/images/*.png"
+            "*.png"
         ],
     },
     zip_safe=False,
