@@ -10,7 +10,9 @@ To use this app install it with the following command:
 python setup.py install
 
 After that you need to add gntimages to INSTALLED_APPS and import 
-the gntimages.urls to your urls settings.
+the gntimages.urls to your urls settings. Also make sure the png images 
+'base_needle.png' and 'needle_color.png' is copied to you MEDIA_ROOT
+path.
 
 The app works by giving color and scale as get parameters 'color' and 'scale'.
 The color should be given in hexadecimal representation and scale as a float.
