@@ -1,0 +1,7 @@
+This application provides needle images to be used as markers on a map. The 
+needle images can also be used as icons on buttons or other places as
+required.
+
+The GET parameters define the color in RGB and also the size of the image to be
+returned. This application is only ment to porvide map markers but the idea
+can of course be used to procide other types of images too.
