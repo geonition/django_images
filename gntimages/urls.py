@@ -6,4 +6,8 @@ urlpatterns = patterns('gntimages.views',
             url(r'^needle',
                 'needle',
                 name='image_needle'),
+            #test templates
+            url(r'^route',
+                'route',
+                name='image_route'),
         )
