@@ -14,5 +14,7 @@ python setup.py install
 After that you need to add gntimages to INSTALLED_APPS and import 
 the gntimages.urls to your urls settings.
 
+Also the MEDIA_ROOT needs to be set to the path where the base images for the icons can be found.
+
 The app works by giving color and scale as get parameters 'color' and 'scale'.
 The color should be given in hexadecimal representation and scale as a float.
