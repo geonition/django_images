@@ -1,5 +1,4 @@
-This application provides images to be used as markers on a map. The 
-needle is also supposed to be used as icons on buttons.
+This application provides images to be used as markers on a map or as button icons.
 
 The GET parameters define the color in RGB and also the size of the image to be
 returned. At the moment this application provides route, area and needle icons.
