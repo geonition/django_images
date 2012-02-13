@@ -1,18 +1,19 @@
-This application provides needle images to be used as markers on a map. The 
-needle images can also be used as icons on buttons or other places as
-required.
+This application provides images to be used as markers on a map. The 
+needle is also supposed to be used as icons on buttons.
 
 The GET parameters define the color in RGB and also the size of the image to be
-returned. This application is only ment to porvide map markers but the idea
-can of course be used to procide other types of images too.
+returned. At the moment this application provides route, area and needle icons.
+
+e.g..
+/needle?color=33ff00&scale=2.0 --> returns a needle scaled to double size and color #33ff00
+/area?color=33ff00&scale=2.0 --> returns an area scaled to double size and color #33ff00
+/route?color=33ff00&scale=1.0 --> returns a route of original size and color #33ff00
 
 To use this app install it with the following command:
 python setup.py install
 
 After that you need to add gntimages to INSTALLED_APPS and import 
-the gntimages.urls to your urls settings. Also make sure the png images 
-'base_needle.png' and 'needle_color.png' is copied to you MEDIA_ROOT
-path.
+the gntimages.urls to your urls settings.
 
 The app works by giving color and scale as get parameters 'color' and 'scale'.
 The color should be given in hexadecimal representation and scale as a float.
