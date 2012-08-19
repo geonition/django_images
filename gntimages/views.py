@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 import Image
 import ImageChops
 import os
@@ -121,3 +122,31 @@ def area(request):
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
     return response
+
+#views returning svg
+def place_marker(request):
+    color = request.GET.get('color', 'ffffff')
+    scale = request.GET.get('scale', 1)
+    
+    return render_to_response('place_marker.svg',
+                              {'color': '#%s' % color,
+                               'scale': scale},
+                              mimetype = 'image/svg+xml')
+
+def route_marker(request):
+    color = request.GET.get('color', 'ffffff')
+    scale = request.GET.get('scale', 1)
+    
+    return render_to_response('route_marker.svg',
+                              {'color': '#%s' % color,
+                               'scale': scale},
+                              mimetype = 'image/svg+xml')
+
+def area_marker(request):
+    color = request.GET.get('color', 'ffffff')
+    scale = request.GET.get('scale', 1)
+    
+    return render_to_response('area_marker.svg',
+                              {'color': '#%s' % color,
+                               'scale': scale},
+                              mimetype = 'image/svg+xml')

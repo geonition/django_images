@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<g transform="scale({{ scale }})">
+  <linearGradient xmlns="http://www.w3.org/2000/svg"
+                  id="SVGID_1_"
+                  gradientUnits="userSpaceOnUse"
+                  x1="0"
+                  y1="0"
+                  x2="34"
+                  y2="34">
+    <stop offset="0" style="stop-color:#FFFFFF" stop-opacity="0.9"/>
+    <stop offset="1" style="stop-color:{{ color }}" stop-opacity="0.5"/>
+  </linearGradient>
+  <g>
+  <path xmlns="http://www.w3.org/2000/svg"
+        fill="url(#SVGID_1_)"
+        stroke="#6D6E71"
+        stroke-width="0.1019"
+        stroke-miterlimit="10"
+        d="M9 15 l8 17 l8-17 a9 9 0 1,0 -16,0"/>
+  </g>
+  <g xmlns="http://www.w3.org/2000/svg">
+    <circle fill="{{ color }}" cx="17" cy="11" r="4.8"/>
+  </g>
+</g>
+</svg>

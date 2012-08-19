@@ -10,7 +10,8 @@ setup(
     include_package_data=True,
     package_data = {
         "gntimages": [
-            "*.png"
+            "*.png",
+	    "templates/*.svg"
         ],
     },
     zip_safe=False,

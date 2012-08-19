@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+<g transform="scale({{ scale }})">
+  <g transform="scale(2.5), translate(3.5,2.7)">
+    <polyline xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              stroke="{{ color }}"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-miterlimit="10"
+              points="0,0 3.54,2.84 3.54,4.96 7.44,6.38"/>
+  </g>
+</g>
+</svg>
