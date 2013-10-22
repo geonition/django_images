@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
+from django.utils.cache import patch_cache_control
 import Image
 import ImageChops
 import os
@@ -43,6 +44,7 @@ def needle(request):
     #this is not efficient, might need improvement
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
+    patch_cache_control(response,{'no-transform':True,'public':True,'max-age':300,'s-maxage':900})
     return response
 
 def route(request):
