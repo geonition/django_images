@@ -131,7 +131,6 @@ def place_marker(request):
     scale = request.GET.get('scale', 1)
     cache_id = 'place_marker_'+color
     cache_resp = cache.get(cache_id)
-    import ipdb;ipdb.set_trace()
     if cache_resp:
         return cache_resp
     response = render_to_response('place_marker.svg',
