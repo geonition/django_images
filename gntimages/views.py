@@ -44,7 +44,7 @@ def needle(request):
     #this is not efficient, might need improvement
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
-    patch_cache_control(response,{'no-transform':True,'public':True,'max-age':300,'s-maxage':900})
+    #patch_cache_control(response,{'no-transform':True,'public':True,'max-age':300,'s-maxage':900})
     return response
 
 def route(request):
