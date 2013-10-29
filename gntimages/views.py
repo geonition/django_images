@@ -2,6 +2,7 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.utils.cache import patch_cache_control
+from django.core.cache import cache
 import Image
 import ImageChops
 import os
@@ -44,7 +45,6 @@ def needle(request):
     #this is not efficient, might need improvement
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
-    #patch_cache_control(response,{'no-transform':True,'public':True,'max-age':300,'s-maxage':900})
     return response
 
 def route(request):
@@ -129,11 +129,19 @@ def area(request):
 def place_marker(request):
     color = request.GET.get('color', 'ffffff')
     scale = request.GET.get('scale', 1)
-    
-    return render_to_response('place_marker.svg',
+    cache_id = 'place_marker_'+color
+    cache_resp = cache.get(cache_id)
+    import ipdb;ipdb.set_trace()
+    if cache_resp:
+        return cache_resp
+    response = render_to_response('place_marker.svg',
                               {'color': '#%s' % color,
                                'scale': scale},
                               mimetype = 'image/svg+xml')
+
+    patch_cache_control(response,no_transform=True,public=True,max_age=300,s_maxage=900)
+    cache.set(cache_id, response, 300)
+    return response
 
 def route_marker(request):
     color = request.GET.get('color', 'ffffff')
