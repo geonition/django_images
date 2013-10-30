@@ -50,6 +50,7 @@ def needle(request):
     #this is not efficient, might need improvement
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
+    response['gnt-force-cache-control'] = 'True'
     cache.set(cache_id, response, 3000)
     return response
 
@@ -145,6 +146,7 @@ def place_marker(request):
                                'scale': scale},
                               mimetype = 'image/svg+xml')
 
+    response['gnt-force-cache-control'] = 'True'
     cache.set(cache_id, response, 3000)
     return response
 
