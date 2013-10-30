@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.utils.cache import patch_cache_control
 from django.core.cache import cache
+from django.views.decorators.cache import cache_control
 import Image
 import ImageChops
 import os
@@ -126,6 +127,7 @@ def area(request):
     return response
 
 #views returning svg
+@cache_control(public=True,no_transform=True,max_age=900,s_maxage=900)
 def place_marker(request):
     color = request.GET.get('color', 'ffffff')
     scale = request.GET.get('scale', 1)
@@ -138,10 +140,10 @@ def place_marker(request):
                                'scale': scale},
                               mimetype = 'image/svg+xml')
 
-    patch_cache_control(response,no_transform=True,public=True,max_age=300,s_maxage=900)
-    cache.set(cache_id, response, 300)
+    cache.set(cache_id, response, 3000)
     return response
 
+@cache_control(public=True,no_transform=True,max_age=900,s_maxage=900)
 def route_marker(request):
     color = request.GET.get('color', 'ffffff')
     scale = request.GET.get('scale', 1)
@@ -151,6 +153,7 @@ def route_marker(request):
                                'scale': scale},
                               mimetype = 'image/svg+xml')
 
+@cache_control(public=True,no_transform=True,max_age=900,s_maxage=900)
 def area_marker(request):
     color = request.GET.get('color', 'ffffff')
     scale = request.GET.get('scale', 1)
