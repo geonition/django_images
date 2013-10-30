@@ -10,6 +10,10 @@ import os
 
 def needle(request):
     color = request.GET.get('color', 'ffffff')
+    cache_id = 'needle_'+color
+    cache_resp = cache.get(cache_id)
+    if cache_resp:
+        return cache_resp
     red = int(color[0:2], 16)
     green = int(color[2:4], 16)
     blue = int(color[4:6], 16)
@@ -46,6 +50,7 @@ def needle(request):
     #this is not efficient, might need improvement
     response = HttpResponse(content_type="image/png")
     new_image.save(response, "PNG")
+    cache.set(cache_id, response, 3000)
     return response
 
 def route(request):
